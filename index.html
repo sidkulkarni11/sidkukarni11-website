@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siddhesh Kulkarni - Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #006400;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            margin-top: 0;
+            color: #006400;
+        }
+        
+        .card p {
+            white-space: pre-line;
+        }
+        
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        header {
+            background-color: #006400;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-left h1 {
+            margin: 0;
+            font-size: 2rem;
+            margin-left: 20px;
+        }
+        
+        .header-right a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+        
+        .header-right a:hover {
+            color: #ccc;
+        }
+        
+        .header-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        
+        .header-right a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+        
+        .header-right a:hover {
+            color: #ccc;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #323232;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 6px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 9999;
+            font-size: 0.95rem;
+            pointer-events: none;
+        }
+        
+        .toast.show {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFEvq4PWDKXtg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1713386047504?e=1750291200&v=beta&t=SyMtiqtZpzW1ImQ1V2vwt73Xo2msfPAuOMFXvdFwZ7s" alt="Profile Placeholder" class="header-image"
+            />
+            <h1>Siddhesh Kulkarni</h1>
+        </div>
+        <div class="header-right">
+            <a href="https://www.instagram.com/sid.kulkarni11/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/siddhesh-kulkarni-938ab7164/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0);" onclick="copyEmail()" title="Copy Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="javascript:void(0);" onclick="copyPhoneNumber()" title="Copy Phone Number">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+    </header>
+
+
+    <div class="grid-container" id="contentGrid"></div>
+
+    <footer>
+        &copy; 2025 Siddhesh Kulkarni. All rights reserved.
+    </footer>
+
+    <script>
+        const data = {
+            "aboutMe": "Hi, I'm Siddhesh Kulkarni - a passionate software developer by profession and a dedicated social worker by heart. I have over 5 years of experience in crafting enterprise-grade Android applications for clients across India and overseas. I'm currently working at Onov8, a Dubai-based company.",
+            "professionalExperience": "- 15+ Android apps from scratch to Play Store deployment\n- Solely handled Paradise Biryani Android app\n- Developed apps for Colgate, NearLaw\n- Integrated AI, deep linking, and Elastic Search\n- Skilled in Kotlin, MVVM, Jetpack Compose, Flutter",
+            "projectsClients": "Worked with: \n- Colgate\n- Paradise Biryani\n- NearLaw\n- Dubai-based clients at Onov8",
+            "volunteeringSocialImpact": "Active with Robin Hood Army: \n- Organize weekly food drives and teach slum children every Sunday.\n- Events include beach clean-ups, mental health sessions, sports tournaments.",
+            "majorDrivesEvents": "- Independence Day Mega Drive (30 hours)\n- Beat the Heat\n- BookMyShow Drive\n- Children's Day Drive\n- Saathi NGO Mela\n- Festive Drives\n- Afroz Shah collaborations",
+            "collaborationsOutreach": "Worked with:\n -Colleges (Sathaye, KJ Somaiya, NMIMS, etc.)\n- Corporates (Morgan Stanley, Taj)\n- NGOs (Door Step School, Sri Satya Sai, Vivekananda Foundation, Oasis NGO)\n- Member of RHA Mumbai Academy's social media team",
+            "education": "- Parle Tilak Vidyalaya (School)\n- Jogeshwari Education Society (Junior College)\n- BSc IT - Usha Pravin Gandhi College\n- MSc IT - Nagindas Khandwala College",
+            "achievements": "- MCA CET - 96.43 Percentile\n- Maharashtra Scholarship - 2010\n- Volunteer of the Month (twice)\n- First-rank Chess Player (2015-2017)",
+            "beliefsVision": "- Serve without pause.\n- Grow without limits.\n- Believe in equality, progressive thinking, and healthy living.\n- Aspire to lead development teams and serve humanity always.",
+            // "contact": "Phone: +91 98699 11864\nEmail: siddheshdilipkulkarni@gmail.com\nInstagram | WhatsApp | LinkedIn | Contact Form",
+            // "familyBackground": "Father: Mr. Dilip Kulkarni - Former Principal, SSC Board Setter, Moderator, TV featured for student guidance\nMother: Mrs. Sunita Kulkarni - Former Secretary to MD, Asia Pacific"
+        };
+
+        const container = document.getElementById('contentGrid');
+        Object.keys(data).forEach(key => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `<h2>${key.replace(/([A-Z])/g, ' $1').toUpperCase().trim()}</h2><p>${data[key].replace(/\n/g, '<br>')}</p>`;
+            container.appendChild(card);
+        });
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+        }
+
+        function copyPhoneNumber() {
+            const phoneNumber = "+919869911864";
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                showToast("📞 Phone number copied!");
+            }).catch(() => {
+                showToast("❌ Failed to copy phone number.");
+            });
+        }
+
+        function copyEmail() {
+            const email = "siddheshdilipkulkarni@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                showToast("✉️ Email address copied!");
+            }).catch(() => {
+                showToast("❌ Failed to copy email.");
+            });
+        }
+    </script>
+    <div id="toast" class="toast"></div>
+
+
+</body>
+
+</html>

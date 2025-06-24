@@ -4,223 +4,339 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Siddhesh Kulkarni - Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        
-        header {
-            background-color: #006400;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-        
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .card h2 {
-            margin-top: 0;
-            color: #006400;
-        }
-        
-        .card p {
-            white-space: pre-line;
-        }
-        
-        footer {
-            background-color: #000;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        
-        header {
-            background-color: #006400;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-        
-        .header-left h1 {
-            margin: 0;
-            font-size: 2rem;
-            margin-left: 20px;
-        }
-        
-        .header-right a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin-left: 15px;
-            transition: color 0.3s;
-        }
-        
-        .header-right a:hover {
-            color: #ccc;
-        }
-        
-        .header-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        
-        .header-right a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin-left: 15px;
-            transition: color 0.3s;
-        }
-        
-        .header-right a:hover {
-            color: #ccc;
-        }
-        
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #323232;
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 6px;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            z-index: 9999;
-            font-size: 0.95rem;
-            pointer-events: none;
-        }
-        
-        .toast.show {
-            opacity: 1;
-            transform: translateY(-10px);
-        }
-    </style>
 
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!-- =====BOX ICONS===== -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+
+    <title>Portfolio website complete</title>
 </head>
 
 <body>
-    <header>
-        <div class="header-left">
-            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFEvq4PWDKXtg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1713386047504?e=1750291200&v=beta&t=SyMtiqtZpzW1ImQ1V2vwt73Xo2msfPAuOMFXvdFwZ7s" alt="Profile Placeholder" class="header-image"
-            />
-            <h1>Siddhesh Kulkarni</h1>
-        </div>
-        <div class="header-right">
-            <a href="https://www.instagram.com/sid.kulkarni11/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/siddhesh-kulkarni-938ab7164/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="javascript:void(0);" onclick="copyEmail()" title="Copy Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="javascript:void(0);" onclick="copyPhoneNumber()" title="Copy Phone Number">
-                <i class="fas fa-phone"></i>
-            </a>
-        </div>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Sid</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">Skills</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#work" class="nav__link">Work</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-menu"></i>
+            </div>
+        </nav>
     </header>
 
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">
+                    Hi,<br />I'am <span class="home__title-color">Sid Kulkarni</span><br />
+                </h1>
+                <h2 class="home__subtitle">
+                    Android Trainer <br>
+					Social Worker <br>
+					Public Speaker & Open Mic Performer<br>
+					Mental Health Advocate <br>
+                    FIDE Chess Player <br>
+                    Author <br>
+                </h2>
+                <br />
 
-    <div class="grid-container" id="contentGrid"></div>
 
-    <footer>
-        &copy; 2025 Siddhesh Kulkarni. All rights reserved.
+                <a href="tel:+919869911864" class="button">+91 9869911864</a>
+			
+				<div class="home__social" style="margin-top: 1rem;">
+    <a href="https://www.linkedin.com/in/siddhesh-kulkarni-938ab7164/" class="home__social-icon">
+        <i class="bx bxl-linkedin"></i>
+    </a>
+    <a href="https://www.instagram.com/sid.kulkarni11/" class="home__social-icon">
+        <i class="bx bxl-instagram"></i>
+    </a>
+    <a href="https://youtube.com/@sid.kulkarni11?si=oHIZT2ciCmj-moWi" class="home__social-icon">
+        <i class="bx bxl-youtube"></i>
+    </a>
+    <a href="mailto:hello@sidkulkarni.com" class="home__social-icon">
+        <i class="bx bx-envelope"></i>
+    </a>
+
+
+            </div>
+			
+			
+
+          
+			
+            <div class="home__img">
+                <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <mask id="mask0" mask-type="alpha">
+                        <path
+                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                    </mask>
+                    <g mask="url(#mask0)">
+                        <path
+                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                        <image class="home__blob-img" x="50" y="60" href="assets/img/about.png" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/perfil.png" alt="" />
+                </div>
+
+                <div>
+                    <h2 class="about__subtitle">I'm Sid</h2>
+                    <p class="about__text">
+                        With over <strong>5 years of experience</strong> in Android development, I’ve successfully built
+                        <strong>50+ enterprise-level apps</strong> for clients across the globe.
+                    </p>
+
+                    <ul class="about__list">
+                        <li>
+                            📱 <strong>Expertise:</strong> MVVM, Jetpack Compose, Firebase, Kotlin, Java, Retrofit
+                        </li>
+                        <li>
+                            🌍 Delivered apps for <strong>Dubai-based clients</strong>, <strong>Colgate India</strong>,
+                            and <strong>Paradise Biryani</strong>
+                        </li>
+                        <li>
+                            🤝 Collaborated with <strong>10+ companies</strong> to create scalable tech solutions
+                        </li>
+                        <li>
+                            🧑‍🏫 Currently mentoring future developers through intensive
+                            <strong>Android training programs</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills__container bd-grid">
+                <div>
+                    <h2 class="skills__subtitle">
+                        Professional Experience
+                    </h2>
+                    <p class="skills__text">
+                        15+ Android apps from scratch to Play Store
+                        deployment – Solely handled Paradise Biryani Android
+                        app – Developed apps for Colgate, NearLaw –
+                        Integrated AI, deep linking, and Elastic Search –
+                    </p>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bx-code skills__icon"></i>
+                            <span class="skills__name">Kotlin</span>
+                        </div>
+                        <div class="skills__bar skills__kotlin"></div>
+                        <div>
+                            <span class="skills__percentage">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bx-code skills__icon"></i>
+
+                            <span class="skills__name">Java</span>
+                        </div>
+                        <div class="skills__bar skills__Java"></div>
+                        <div>
+                            <span class="skills__percentage">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bx-mobile skills__icon"></i>
+                            <span class="skills__name">Flutter</span>
+                        </div>
+                        <div class="skills__bar skills__flutter"></div>
+                        <div>
+                            <span class="skills__percentage">30%</span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bx-cube skills__icon"></i>
+                            <span class="skills__name">Leadership</span>
+                        </div>
+                        <div class="skills__bar skills__leadership"></div>
+                        <div>
+                            <span class="skills__percentage">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="bx bx-layout skills__icon"></i>
+                            <span class="skills__name">Training</span>
+                        </div>
+                        <div class="skills__bar skills__compose"></div>
+                        <div>
+                            <span class="skills__percentage">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="assets/img/work3.jpg" alt="" class="skills__img" />
+                </div>
+            </div>
+        </section>
+
+        <!--===== SCOLLABORATIONS OUTREACH=====-->
+        <section class="section collaborations" id="collaborations">
+            <h2 class="section-title">COLLABORATIONS & OUTREACH</h2>
+
+            <div class="skills__container bd-grid">
+                <div>
+                    <h2 class="skills__subtitle">
+                        Community & Professional Partnerships
+                    </h2>
+                    <p class="skills__text">
+						Professional partnership with Mindopiia
+                        Working with DSS,Robin Hood Army,Tap2Smile and many more
+                    </p>
+                </div>
+
+                <div>
+                    <img src="assets/img/work3.jpg" alt="" class="skills__img" />
+                </div>
+            </div>
+        </section>
+        <section class="work section" id="work">
+            <h2 class="section-title">Work</h2>
+
+            <div class="work__container bd-grid">
+                <div class="work__item">
+                    <h3 class="work__title"><i class="bx bx-heart-circle"></i> Robin Hood Army – Andheri East Chapter
+                    </h3>
+                    <ul class="work__list">
+                        <li>📚 Conducted weekly teaching programs for underserved children</li>
+                        <li>🍴 Led drives with BookMyShow & Benny Dosa Franchise</li>
+                        <li>🏆 Twice awarded "Volunteer of the Month"</li>
+                        <li>🤝 Partnered with influencer Omkar Bolke & actress Mrunali Shirke</li>
+                    </ul>
+                </div>
+
+                <div class="work__item">
+                    <h3 class="work__title"><i class="bx bx-water"></i> Beach Cleanups with Afroz Shah</h3>
+                    <p class="work__text">
+                        Participated in large-scale cleanups with the UNEP Champion of the Earth, supporting marine
+                        sustainability in Mumbai.
+                    </p>
+                </div>
+
+                <div class="work__item">
+                    <h3 class="work__title"><i class="bx bx-bar-chart-alt"></i> Strategy & Tech for NGOs</h3>
+                    <ul class="work__list">
+                        <li>📊 Strategy Analyst at Door Step School</li>
+                        <li>💻 IT Lead at Tap2Smile – built and managed platforms</li>
+                        <li>🌱 Tree Plantation App for SSSSO India</li>
+                    </ul>
+                </div>
+
+                <div class="work__item">
+                    <h3 class="work__title"><i class="bx bx-donate-heart"></i> Donation Drives & Outreach</h3>
+                    <p class="work__text">
+                        Led localized food and essentials donation drives with Aahar Sadan Sanstha, impacting 500+
+                        families in underserved communities.
+                    </p>
+                </div>
+
+                <div class="work__item">
+                    <h3 class="work__title"><i class="bx bx-heart"></i> Body Organ Donation</h3>
+                    <p class="work__text">
+                        Proudly registered as a body organ donor to continue serving humanity even after life.
+                    </p>
+                </div>
+            </div>
+            <div class="work__container bd-grid">
+                <a href="" class="work__img">
+                    <img src="assets/img/work1.jpg" alt="" />
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work2.jpg" alt="" />
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work3.jpg" alt="" />
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work4.jpg" alt="" />
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work5.jpg" alt="" />
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work6.jpg" alt="" />
+                </a>
+            </div>
+
+        </section>
+
+       
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">Sid</p>
+
+        <div class="footer__social">
+            <a href="https://www.linkedin.com/in/siddhesh-kulkarni-938ab7164/" class="footer__icon">
+                <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/sid.kulkarni11/" class="footer__icon">
+                <i class="bx bxl-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@sid.kulkarni11?si=oHIZT2ciCmj-moWi" class="footer__icon">
+                <i class="bx bxl-youtube"></i>
+            </a>
+            <a href="mailto:hello@sidkulkarni.com" onclick="copyEmail()" class="footer__icon">
+                <i class="bx bx-envelope"></i>
+            </a>
+        </div>
+
+        <p class="footer__copy">
+            &#169; Siddhesh Kulkarni . All rights reserved
+        </p>
     </footer>
 
-    <script>
-        const data = {
-            "aboutMe": "Hi, I'm Siddhesh Kulkarni - a passionate software developer by profession and a dedicated social worker by heart. I have over 5 years of experience in crafting enterprise-grade Android applications for clients across India and overseas. I'm currently working at Onov8, a Dubai-based company.",
-            "professionalExperience": "- 15+ Android apps from scratch to Play Store deployment\n- Solely handled Paradise Biryani Android app\n- Developed apps for Colgate, NearLaw\n- Integrated AI, deep linking, and Elastic Search\n- Skilled in Kotlin, MVVM, Jetpack Compose, Flutter",
-            "projectsClients": "Worked with: \n- Colgate\n- Paradise Biryani\n- NearLaw\n- Dubai-based clients at Onov8",
-            "volunteeringSocialImpact": "Active with Robin Hood Army: \n- Organize weekly food drives and teach slum children every Sunday.\n- Events include beach clean-ups, mental health sessions, sports tournaments.",
-            "majorDrivesEvents": "- Independence Day Mega Drive (30 hours)\n- Beat the Heat\n- BookMyShow Drive\n- Children's Day Drive\n- Saathi NGO Mela\n- Festive Drives\n- Afroz Shah collaborations",
-            "collaborationsOutreach": "Worked with:\n -Colleges (Sathaye, KJ Somaiya, NMIMS, etc.)\n- Corporates (Morgan Stanley, Taj)\n- NGOs (Door Step School, Sri Satya Sai, Vivekananda Foundation, Oasis NGO)\n- Member of RHA Mumbai Academy's social media team",
-            "education": "- Parle Tilak Vidyalaya (School)\n- Jogeshwari Education Society (Junior College)\n- BSc IT - Usha Pravin Gandhi College\n- MSc IT - Nagindas Khandwala College",
-            "achievements": "- MCA CET - 96.43 Percentile\n- Maharashtra Scholarship - 2010\n- Volunteer of the Month (twice)\n- First-rank Chess Player (2015-2017)",
-            "beliefsVision": "- Serve without pause.\n- Grow without limits.\n- Believe in equality, progressive thinking, and healthy living.\n- Aspire to lead development teams and serve humanity always.",
-            // "contact": "Phone: +91 98699 11864\nEmail: siddheshdilipkulkarni@gmail.com\nInstagram | WhatsApp | LinkedIn | Contact Form",
-            // "familyBackground": "Father: Mr. Dilip Kulkarni - Former Principal, SSC Board Setter, Moderator, TV featured for student guidance\nMother: Mrs. Sunita Kulkarni - Former Secretary to MD, Asia Pacific"
-        };
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-        const container = document.getElementById('contentGrid');
-        Object.keys(data).forEach(key => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `<h2>${key.replace(/([A-Z])/g, ' $1').toUpperCase().trim()}</h2><p>${data[key].replace(/\n/g, '<br>')}</p>`;
-            container.appendChild(card);
-        });
-
-        function showToast(message) {
-            const toast = document.getElementById("toast");
-            toast.textContent = message;
-            toast.classList.add("show");
-
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 2500);
-        }
-
-        function copyPhoneNumber() {
-            const phoneNumber = "+919869911864";
-            navigator.clipboard.writeText(phoneNumber).then(() => {
-                showToast("📞 Phone number copied!");
-            }).catch(() => {
-                showToast("❌ Failed to copy phone number.");
-            });
-        }
-
-        function copyEmail() {
-            const email = "siddheshdilipkulkarni@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                showToast("✉️ Email address copied!");
-            }).catch(() => {
-                showToast("❌ Failed to copy email.");
-            });
-        }
-    </script>
-    <div id="toast" class="toast"></div>
-
-
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
